@@ -59,6 +59,13 @@ export const projects = [
     cta: "View Gallery",
   },
   {
+    title: "Oura Ring",
+    tag: "E-Commerce Solution",
+    image: "/oura-ring.png",
+    href: "https://ouraring.com/",
+    cta: "View Project",
+  },
+  {
     title: "SkillShastra",
     tag: "EdTech Platform",
     image: "/SkillShastra.png",
