@@ -2,8 +2,8 @@ import { site, techStack, projects, pricingTiers, addons, stats, pricingNiches }
 
 export const fr = {
   metadata: {
-    title: "Nervure — La structure derrière la forme",
-    description: "Agence de design et développement. La structure invisible qui tient la forme visible — métaphore puissante du travail de design et de développement : l'ossature derrière l'apparence.",
+    title: "Nervure — Agence Web & Développement à Nantes | Création de Sites Internet",
+    description: "Nervure, agence web à Nantes spécialisée en création de sites internet, développement logiciel, design UI/UX et référencement SEO. Solutions digitales sur mesure pour entreprises et startups en Loire-Atlantique.",
   },
   nav: [
     { label: "À propos", href: "/fr#about" },

@@ -2,8 +2,8 @@ import { site, techStack, projects, pricingTiers, addons, stats, pricingNiches }
 
 export const en = {
   metadata: {
-    title: "Nervure — The structure behind the form",
-    description: "Design and development agency. The invisible structure that holds the visible form — a powerful metaphor for design and development: the framework behind the appearance.",
+    title: "Nervure — Web Agency & Development in Nantes, France | Website Creation",
+    description: "Nervure is a Nantes-based web agency specializing in website creation, software development, UI/UX design, and SEO. Custom digital solutions for businesses and startups in France.",
   },
   nav: [
     { label: "About", href: "/en#about" },
