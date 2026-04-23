@@ -70,7 +70,7 @@ function TechIcon({ name }: { name: string }) {
 function Row({ items, reverse = false }: { items: string[]; reverse?: boolean }) {
   const doubled = [...items, ...items];
   return (
-    <div className="flex gap-16 whitespace-nowrap" style={{ animation: `${reverse ? "marquee-reverse" : "marquee"} 60s linear infinite` }}>
+    <div className={`flex gap-16 whitespace-nowrap ${reverse ? "animate-marquee-reverse" : "animate-marquee"}`}>
       {doubled.map((t, i) => (
         <div key={`${t}-${i}`} className="flex items-center gap-16 shrink-0">
           <TechIcon name={t} />

@@ -52,32 +52,11 @@ export const projects = [
     cta: "View Live",
   },
   {
-    title: "E-Commerce Website",
-    tag: "Full Stack Application",
-    image: "/Ecommerce.png",
-    href: "https://ecommerce-webapp-w5g9.vercel.app/",
-    cta: "View Live",
-  },
-  {
-    title: "Graphic Designs",
-    tag: "Creative Portfolio",
-    image: "/project-landing.png",
-    href: "#",
-    cta: "View Gallery",
-  },
-  {
     title: "Oura Ring",
     tag: "E-Commerce Solution",
     image: "/oura-ring.png",
     href: "https://ouraring.com/",
     cta: "View Project",
-  },
-  {
-    title: "SkillShastra",
-    tag: "EdTech Platform",
-    image: "/SkillShastra.png",
-    href: "https://skill-shastra.vercel.app/",
-    cta: "View Live",
   },
 ];
 

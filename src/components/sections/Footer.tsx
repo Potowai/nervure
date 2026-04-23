@@ -56,46 +56,6 @@ export function Footer({ dict, lang }: { dict: any; lang: string }) {
             </ul>
           </div>
 
-          <div className="lg:col-span-2">
-            <h4 className="text-xs tracking-[0.2em] uppercase text-fg-subtle mb-6">
-              {dict.footer.socials}
-            </h4>
-            <ul className="space-y-4">
-              <li>
-                <a
-                  href={site.socials.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 text-fg-muted hover:text-fg transition-colors"
-                >
-                  Instagram
-                  <ArrowUpRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href={site.socials.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 text-fg-muted hover:text-fg transition-colors"
-                >
-                  Twitter / X
-                  <ArrowUpRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href={site.socials.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 text-fg-muted hover:text-fg transition-colors"
-                >
-                  LinkedIn
-                  <ArrowUpRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
 
         {/* Giant wordmark */}
