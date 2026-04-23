@@ -45,6 +45,13 @@ export const services = [
 
 export const projects = [
   {
+    title: "Nueve",
+    tag: "Brand Website",
+    image: "/nueve-gr.png",
+    href: "https://nueve.gr",
+    cta: "View Live",
+  },
+  {
     title: "E-Commerce Website",
     tag: "Full Stack Application",
     image: "/Ecommerce.png",
