@@ -36,7 +36,7 @@ export function Hero({ dict, lang }: { dict: any; lang: string }) {
               <span className="tracking-[0.2em] uppercase">{dict.hero.status}</span>
             </motion.div>
 
-            <h1 className="font-display text-display-xl font-light leading-[1.1] flex flex-col items-start">
+            <h1 className="font-display text-display-xl font-light leading-[1.1]">
               <motion.span
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -45,15 +45,15 @@ export function Hero({ dict, lang }: { dict: any; lang: string }) {
               >
                 {dict.hero.weAreThe}
               </motion.span>
-              <span className="relative inline-block overflow-visible pb-8 min-h-[1.5em]">
+              <span className="block relative overflow-hidden py-4">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={dict.hero.rotatingWords[index]}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                    className="block text-accent font-medium whitespace-nowrap leading-tight"
+                    exit={{ opacity: 0, y: -40 }}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    className="block text-accent font-medium leading-[1.15]"
                   >
                     {dict.hero.rotatingWords[index]}
                   </motion.span>
