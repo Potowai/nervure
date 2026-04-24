@@ -13,8 +13,8 @@ export function Services({ dict }: { dict: any }) {
               <span className="w-6 h-px bg-accent" />
               {dict.services.tag}
             </div>
-            <h2 className="font-display text-display-lg font-light leading-[0.95]">
-              {dict.services.heading1} <br />
+            <h2 className="font-display text-4xl sm:text-display-lg font-light leading-[0.95]">
+              {dict.services.heading1} <br className="hidden sm:block" />
               <span className="italic text-accent">{dict.services.headingHighlight}</span>
             </h2>
           </div>

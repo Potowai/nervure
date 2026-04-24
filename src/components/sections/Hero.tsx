@@ -53,7 +53,7 @@ export function Hero({ dict, lang }: { dict: any; lang: string }) {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -40 }}
                     transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    className="block text-accent font-medium leading-[1.15]"
+                    className="block text-accent font-medium leading-[1.15] text-[2.75rem] sm:text-5xl md:text-display-xl"
                   >
                     {dict.hero.rotatingWords[index]}
                   </motion.span>

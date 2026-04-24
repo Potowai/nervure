@@ -5,6 +5,7 @@ import { X, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { site } from "@/lib/content";
 import { useEffect } from "react";
+import { cn } from "@/lib/cn";
 
 interface MenuOverlayProps {
   isOpen: boolean;
@@ -119,7 +120,8 @@ export function MenuOverlay({ isOpen, onClose, dict, lang }: MenuOverlayProps) {
                       custom={i}
                       variants={linkVariants}
                       onClick={onClose}
-                      className="block font-display text-6xl md:text-8xl lg:text-[10rem] font-light leading-none uppercase tracking-tighter hover:text-[#C5A059] transition-colors"
+                      onPointerDown={onClose}
+                      className="block font-display text-5xl sm:text-6xl md:text-8xl lg:text-[10rem] font-light leading-none uppercase tracking-tighter hover:text-[#C5A059] transition-colors"
                     >
                       {item.label}
                     </motion.a>
@@ -158,14 +160,20 @@ export function MenuOverlay({ isOpen, onClose, dict, lang }: MenuOverlayProps) {
               <div className="flex items-center gap-8 text-sm tracking-widest uppercase opacity-60">
                 <Link 
                   href="/fr" 
-                  className={lang === "fr" ? "text-[#C5A059] opacity-100" : "hover:opacity-100 transition-opacity"}
+                  className={cn(
+                    "py-2 transition-opacity",
+                    lang === "fr" ? "text-[#C5A059] opacity-100" : "hover:opacity-100"
+                  )}
                   onClick={onClose}
                 >
                   Français
                 </Link>
                 <Link 
                   href="/en" 
-                  className={lang === "en" ? "text-[#C5A059] opacity-100" : "hover:opacity-100 transition-opacity"}
+                  className={cn(
+                    "py-2 transition-opacity",
+                    lang === "en" ? "text-[#C5A059] opacity-100" : "hover:opacity-100"
+                  )}
                   onClick={onClose}
                 >
                   English

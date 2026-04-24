@@ -25,7 +25,7 @@ export function Pricing({ dict, lang }: { dict: any; lang: string }) {
         </div>
 
         {/* Niche tabs */}
-        <div className="flex flex-wrap justify-center items-center gap-2 mb-14">
+        <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-3 mb-14">
           <span className="text-sm text-fg-muted mr-2">{dict.pricing.nichesTag}</span>
           {pricingNiches.map((n) => (
             <button
