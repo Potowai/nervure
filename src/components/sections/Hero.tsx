@@ -77,13 +77,21 @@ export function Hero({ dict, lang }: { dict: any; lang: string }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.55 }}
+              className="flex flex-wrap items-center gap-4"
             >
               <Link
                 href={`/${lang}/contact`}
-                className="group inline-flex items-center gap-3 rounded-full bg-accent text-bg px-6 py-3.5 font-medium hover:bg-accent-glow transition-colors"
+                className="group inline-flex items-center gap-3 rounded-full bg-accent text-bg px-6 py-3.5 font-medium hover:bg-accent/90 transition-colors"
               >
                 {dict.hero.cta}
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+              <Link
+                href={`/${lang}/work`}
+                className="group inline-flex items-center gap-2 text-sm text-fg-muted hover:text-fg transition-colors"
+              >
+                {dict.hero.ctaSecondary}
+                <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </motion.div>
           </div>

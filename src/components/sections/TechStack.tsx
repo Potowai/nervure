@@ -43,9 +43,11 @@ function TechIcon({ name }: { name: string }) {
         className="cursor-pointer"
       >
         {/* Fetching the logo from Simple Icons CDN with the brand color #C5A059 */}
-        <img 
-          src={`https://cdn.simpleicons.org/${slug}/C5A059`} 
+        <img
+          src={`https://cdn.simpleicons.org/${slug}/C5A059`}
           alt={name}
+          width={48}
+          height={48}
           className="w-10 h-10 lg:w-12 lg:h-12 opacity-60 hover:opacity-100 transition-opacity"
         />
       </motion.div>

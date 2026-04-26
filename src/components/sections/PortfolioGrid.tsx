@@ -45,14 +45,17 @@ export function PortfolioGrid({ dict }: { dict: any }) {
             <div className="text-xs tracking-[0.2em] uppercase text-accent mb-3 font-medium">
               {p.tag}
             </div>
-            <div className="flex items-center justify-between gap-4">
-              <h3 className="font-display text-2xl group-hover:text-accent transition-colors">
+            <div className="flex items-center justify-between gap-4 mb-3">
+              <h2 className="font-display text-2xl group-hover:text-accent transition-colors">
                 {p.title}
-              </h3>
-              <div className="w-10 h-10 rounded-full border border-border-strong flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all">
+              </h2>
+              <div className="w-10 h-10 rounded-full border border-border-strong flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all shrink-0">
                 <ArrowUpRight className="w-4 h-4 text-fg-muted group-hover:text-bg transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </div>
             </div>
+            {p.description && (
+              <p className="text-sm text-fg-muted leading-relaxed">{p.description}</p>
+            )}
           </div>
         </motion.a>
       ))}

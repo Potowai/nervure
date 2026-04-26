@@ -12,18 +12,28 @@ export function ContactForm({ dict }: { dict: any }) {
     e.preventDefault();
     setStatus("loading");
 
-    // Mock submission delay
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    const form = e.target as HTMLFormElement;
+    const data = Object.fromEntries(new FormData(form).entries());
 
-    // For demonstration, always success
-    setStatus("success");
-    
-    // Reset after some time
-    setTimeout(() => {
-      (e.target as HTMLFormElement).reset();
-      setBudget("");
-      setStatus("idle");
-    }, 5000);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error("send failed");
+
+      setStatus("success");
+      setTimeout(() => {
+        form.reset();
+        setBudget("");
+        setStatus("idle");
+      }, 5000);
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 4000);
+    }
   };
 
   return (
@@ -39,6 +49,18 @@ export function ContactForm({ dict }: { dict: any }) {
             <CheckCircle2 className="w-16 h-16 text-accent" />
             <h3 className="text-2xl font-display">{dict.success}</h3>
           </motion.div>
+        ) : status === "error" ? (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="flex flex-col items-center justify-center py-12 text-center space-y-4"
+          >
+            <div className="w-16 h-16 rounded-full border-2 border-red-400 flex items-center justify-center">
+              <span className="text-red-400 text-2xl">✕</span>
+            </div>
+            <p className="text-fg-muted">{dict.error ?? "Something went wrong. Please try again or email us directly."}</p>
+          </motion.div>
         ) : (
           <motion.div
             key="form-fields"
@@ -49,9 +71,10 @@ export function ContactForm({ dict }: { dict: any }) {
           >
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-xs tracking-widest uppercase opacity-60 ml-1">{dict.name}</label>
+                <label htmlFor="contact-name" className="text-xs tracking-widest uppercase opacity-60 ml-1">{dict.name}</label>
                 <input
                   required
+                  id="contact-name"
                   type="text"
                   name="name"
                   placeholder="John Doe"
@@ -59,9 +82,10 @@ export function ContactForm({ dict }: { dict: any }) {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-xs tracking-widest uppercase opacity-60 ml-1">{dict.email}</label>
+                <label htmlFor="contact-email" className="text-xs tracking-widest uppercase opacity-60 ml-1">{dict.email}</label>
                 <input
                   required
+                  id="contact-email"
                   type="email"
                   name="email"
                   placeholder="john@example.com"
@@ -71,9 +95,10 @@ export function ContactForm({ dict }: { dict: any }) {
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs tracking-widest uppercase opacity-60 ml-1">{dict.subject}</label>
+              <label htmlFor="contact-subject" className="text-xs tracking-widest uppercase opacity-60 ml-1">{dict.subject}</label>
               <select
                 required
+                id="contact-subject"
                 name="subject"
                 className="w-full bg-fg/5 border border-fg/20 hover:border-fg/40 rounded-xl px-4 py-4 focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all appearance-none"
               >
@@ -110,9 +135,10 @@ export function ContactForm({ dict }: { dict: any }) {
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs tracking-widest uppercase opacity-60 ml-1">{dict.message}</label>
+              <label htmlFor="contact-message" className="text-xs tracking-widest uppercase opacity-60 ml-1">{dict.message}</label>
               <textarea
                 required
+                id="contact-message"
                 name="message"
                 rows={5}
                 placeholder={dict.placeholderMessage}

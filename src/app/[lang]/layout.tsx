@@ -126,6 +126,7 @@ export default async function RootLayout({
       "@type": "PostalAddress",
       addressLocality: "Nantes",
       addressRegion: "Pays de la Loire",
+      postalCode: "44000",
       addressCountry: "FR",
     },
     geo: {

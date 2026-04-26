@@ -1,19 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Download } from "lucide-react";
+import { motion } from "framer-motion";
+import { Menu } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { site } from "@/lib/content";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { MenuOverlay } from "@/components/ui/MenuOverlay";
 
 export function Navbar({ dict, lang }: { dict: any; lang: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
-
   const handleLangChange = (newLang: string) => {
     if (lang === newLang) return;
     const segments = window.location.pathname.split("/");
@@ -57,13 +54,17 @@ export function Navbar({ dict, lang }: { dict: any; lang: string }) {
         <ul className="hidden md:flex items-center gap-10 text-sm text-fg-muted">
           {dict.nav.map((item: any) => (
             <li key={item.href}>
-              <a
-                href={item.href}
-                className="hover:text-fg transition-colors relative group"
-              >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all group-hover:w-full" />
-              </a>
+              {item.href.startsWith("/") && !item.href.includes("#") ? (
+                <Link href={item.href} className="hover:text-fg transition-colors relative group">
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all group-hover:w-full" />
+                </Link>
+              ) : (
+                <a href={item.href} className="hover:text-fg transition-colors relative group">
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all group-hover:w-full" />
+                </a>
+              )}
             </li>
           ))}
         </ul>

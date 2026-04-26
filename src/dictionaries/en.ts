@@ -1,14 +1,12 @@
-import { site, techStack, projects, pricingTiers, addons, stats, pricingNiches } from "@/lib/content";
-
 export const en = {
   metadata: {
-    title: "Nervure — Web Agency & Development in Nantes, France | Website Creation",
-    description: "Nervure is a Nantes-based web agency specializing in website creation, software development, UI/UX design, and SEO. Custom digital solutions for businesses and startups in France.",
+    title: "Nervure — Web Agency & Development Nantes",
+    description: "Nantes web agency specializing in website creation, web development and SEO. Custom digital solutions for businesses in Loire-Atlantique, France.",
   },
   nav: [
-    { label: "About", href: "/en#about" },
+    { label: "About", href: "/en/about" },
     { label: "Services", href: "/en#services" },
-    { label: "Work", href: "/en#work" },
+    { label: "Work", href: "/en/work" },
     { label: "Pricing", href: "/en#pricing" },
   ],
   menu: {
@@ -20,6 +18,7 @@ export const en = {
     rotatingWords: ["DEVELOPERS", "DESIGNERS", "STRATEGISTS", "BUILDERS"],
     description: "The framework behind the appearance. We build digital experiences combining naturalistic aesthetics and technical performance.",
     cta: "LET'S CHAT",
+    ctaSecondary: "View our work",
     bottomStrap: "Design and development agency. The invisible structure that holds the visible form.",
   },
   about: {
@@ -29,6 +28,13 @@ export const en = {
     heading2: " with functionality.",
     p1: "Nervure is a specialized collective of web designers and developers. We are recognized as experts in creating digital experiences, dedicated to building unique online identities with a naturalistic and technical aesthetic.",
     p2: "From the initial concept to the final deployment, we focus on every detail — ensuring your site is fast, accessible, and strikingly beautiful. We don't just build websites; we design the framework behind the appearance.",
+    p3: "Our name, Nervure, comes from the vein structure of a leaf — the invisible architecture that gives each leaf its shape and strength. It is our guiding metaphor: we build the technical foundations that let your brand perform, grow, and stand out in a crowded digital landscape.",
+    p4: "Rooted in Nantes and working with clients across France and Europe, we combine strategic thinking with hands-on craftsmanship. Every project is a collaboration — we listen, we advise, and we build with precision. The result is a digital presence that works as hard as you do.",
+    values: [
+      { title: "Performance First", desc: "Every line of code serves a purpose. We optimize for speed, accessibility, and Core Web Vitals from day one." },
+      { title: "Craft Over Templates", desc: "No cookie-cutter solutions. Each project is designed from scratch to match your brand and business goals." },
+      { title: "Long-term Partnership", desc: "We do not disappear after launch. We maintain, evolve, and support your digital products as your business grows." },
+    ],
     stats: [
       { value: "5+", label: "Years Experience" },
       { value: "50+", label: "Projects Delivered" },
@@ -75,15 +81,15 @@ export const en = {
     tiers: {
       basic: {
         name: "Basic",
-        price: "600",
+        price: "800",
         tagline: "Online presence + trust",
         features: [
-          "5-page website (Home, Menu, About, Contact, Gallery)",
-          "Online menu with pricing",
+          "5-page website (Home, Services, About, Contact, Gallery)",
+          "Custom responsive design",
           "Google Maps integration",
-          "WhatsApp order button",
+          "WhatsApp contact button",
           "Basic SEO setup",
-          "Contact/Reservation form",
+          "Contact / appointment form",
         ],
       },
       standard: {
@@ -92,32 +98,120 @@ export const en = {
         tagline: "Customer engagement + control",
         features: [
           "Everything in Basic +",
-          "Online table booking system",
-          "Admin panel to update menu",
+          "Online booking / appointment system",
+          "Admin panel for content updates",
           "Photo gallery management",
           "Customer inquiry dashboard",
-          "Review/testimonial section",
+          "Reviews / testimonials section",
           "Basic analytics dashboard",
         ],
       },
       premium: {
         name: "Premium",
-        price: "4,000",
+        price: "3,000",
         tagline: "Revenue generation system",
         features: [
           "Everything in Standard +",
-          "Online ordering system (cart + checkout)",
+          "Full e-commerce (cart + checkout)",
           "Payment gateway integration",
           "Order management dashboard",
-          "Coupon/discount system",
-          "Inventory lite tracking",
+          "Discount / coupon system",
+          "Lite inventory tracking",
           "1-month digital marketing support",
         ],
       },
     },
     nichesTag: "We work with:",
-    addonsHeading: "Boost Your Growth",
-    addonsDescription: "Scale faster with our specialized monthly add-ons.",
+    featureCatalog: {
+      heading: "À la carte — Add anything",
+      description: "No package fits perfectly? Pick exactly what you need. All prices are one-time fees, excluding hosting.",
+      note: "Prices shown are indicative. Final quote sent after discovery call.",
+      categories: [
+        {
+          title: "Pages & Content",
+          items: [
+            { name: "Landing page (single-page site)", price: 400 },
+            { name: "Additional page (About, Gallery, FAQ…)", price: 100 },
+            { name: "Contact form page", price: 100 },
+            { name: "Blog (static, up to 10 posts)", price: 200 },
+            { name: "Blog + CMS (editable by you)", price: 400 },
+          ],
+        },
+        {
+          title: "Functional Features",
+          items: [
+            { name: "Booking / appointment system", price: 500 },
+            { name: "E-commerce (basic, up to 30 products)", price: 800 },
+            { name: "E-commerce (full, unlimited products)", price: 1500 },
+            { name: "Multilingual version (+1 language)", price: 300 },
+          ],
+        },
+        {
+          title: "Design & SEO",
+          items: [
+            { name: "Custom logo design", price: 250 },
+            { name: "SEO optimization package", price: 150 },
+            { name: "Analytics setup (GA4)", price: 80 },
+          ],
+        },
+        {
+          title: "Quick Add-ons",
+          items: [
+            { name: "Google Maps integration", price: 50 },
+            { name: "WhatsApp button", price: 50 },
+          ],
+        },
+      ],
+    },
+    hosting: {
+      heading: "Hosting & Maintenance",
+      description: "We manage your server, your SSL, your backups, and keep your site up to date every month — so you focus on your business.",
+      monthlyUnit: "/mo",
+      popularBadge: "Most Popular",
+      plans: [
+        {
+          name: "Essentiel",
+          price: 19,
+          tagline: "The essentials, handled.",
+          popular: false,
+          features: [
+            "Shared hosting (99.9% uptime)",
+            "SSL certificate included",
+            "Monthly backups",
+            "1 content update / month",
+            "Email support",
+          ],
+        },
+        {
+          name: "Pro",
+          price: 49,
+          tagline: "For growing businesses.",
+          popular: true,
+          features: [
+            "VPS hosting (faster performance)",
+            "SSL certificate included",
+            "Daily automatic backups",
+            "3 content updates / month",
+            "Uptime monitoring",
+            "Priority email support",
+          ],
+        },
+        {
+          name: "Agence",
+          price: 99,
+          tagline: "Full managed service.",
+          popular: false,
+          features: [
+            "Dedicated hosting (top performance)",
+            "SSL certificate included",
+            "Real-time backups",
+            "Unlimited minor updates",
+            "Monthly SEO performance report",
+            "Priority phone & email support",
+          ],
+        },
+      ],
+    },
   },
   testimonials: {
     tag: "Client Love",
@@ -126,19 +220,19 @@ export const en = {
     heading2: " for it",
     items: [
       {
-        quote: "Nervure is hands down the best website building agency. They transformed our outdated site into a modern conversion machine. The attention to detail and animations are world-class.",
-        author: "Rahul Sharma",
-        role: "CEO, TechFlow",
+        quote: "Nervure completely transformed our digital presence. The site they built is fast, beautiful and has brought us new clients every week since launch.",
+        author: "Thomas Marchand",
+        role: "Founder, Studio Marchand",
       },
       {
-        quote: "Incredible experience working with Nervure. They understood our brand voice immediately and delivered a product that exceeded our wildest expectations. Highly recommend!",
-        author: "Priya Patel",
-        role: "Founder, StartUp Solutions",
+        quote: "Professional, responsive and creative. Nervure delivered our platform on time and above expectations. The SEO work has been exceptional — traffic doubled in two months.",
+        author: "Claire Fontaine",
+        role: "CEO, Maison Fontaine",
       },
       {
-        quote: "Fast, professional, and wildly creative. The SEO optimizations alone have doubled our organic traffic in just two months.",
-        author: "Amit Verma",
-        role: "Marketing Director, GrowthHub",
+        quote: "Working with Nervure was seamless from day one. They understood our brand vision and built a platform that truly represents who we are. Highly recommend.",
+        author: "Luc Bertrand",
+        role: "Director, Groupe Bertrand",
       },
     ]
   },
@@ -266,6 +360,25 @@ export const en = {
     heading1: "A selection of our ",
     headingHighlight: "best achievements",
     description: "Discover how we help our clients stand out with custom digital solutions, from minimalist design to complex development.",
+    p1: "Our portfolio represents the breadth of challenges we have solved — from bold brand identities and marketing websites to complex full-stack applications. Every project shown here was built to address a specific business need and deliver measurable results.",
+    processTitle: "How We Build",
+    process: [
+      {
+        step: "01",
+        title: "Discovery & Strategy",
+        desc: "We start every engagement with a deep-dive into your business, your customers, and your competitors. This foundation shapes every design and engineering decision that follows, ensuring the final product serves real goals.",
+      },
+      {
+        step: "02",
+        title: "Design & Prototype",
+        desc: "Before writing a single line of code, we create wireframes and high-fidelity prototypes. You review and approve the complete visual direction first — eliminating surprises and keeping you in full control of the outcome.",
+      },
+      {
+        step: "03",
+        title: "Build & Launch",
+        desc: "We develop with clean, maintainable code optimized for performance, accessibility, and search engines. After rigorous testing across devices and browsers, we deploy and monitor the launch to ensure a smooth, successful go-live.",
+      },
+    ],
     cta: "Discuss a project",
   }
 };

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Check, Sparkles } from "lucide-react";
-import { pricingNiches, pricingTiers, addons } from "@/lib/content";
+import { pricingNiches, pricingTiers } from "@/lib/content";
 import { cn } from "@/lib/cn";
 
 export function Pricing({ dict, lang }: { dict: any; lang: string }) {
@@ -110,30 +110,120 @@ export function Pricing({ dict, lang }: { dict: any; lang: string }) {
           })}
         </div>
 
-        {/* Addons */}
-        <div className="mt-20 rounded-2xl border border-border-strong p-8 lg:p-12 bg-bg-elevated">
-          <div className="flex flex-col lg:flex-row lg:items-end gap-4 mb-10">
-            <div>
-              <h3 className="font-display text-3xl lg:text-4xl mb-2">{dict.pricing.addonsHeading}</h3>
-              <p className="text-fg-muted">
-                {dict.pricing.addonsDescription}
-              </p>
-            </div>
+        {/* ── À la carte feature catalog ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="mt-20 rounded-2xl border border-border-strong bg-bg-elevated overflow-hidden"
+        >
+          <div className="p-8 lg:p-12 border-b border-border">
+            <h3 className="font-display text-3xl lg:text-4xl mb-2">{dict.pricing.featureCatalog.heading}</h3>
+            <p className="text-fg-muted max-w-2xl">{dict.pricing.featureCatalog.description}</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {addons.map((a) => (
-              <div
-                key={a.name}
-                className="group rounded-xl border border-border-strong bg-bg p-5 hover:border-accent transition-colors"
-              >
-                <div className="text-sm font-medium group-hover:text-accent transition-colors">
-                  {a.name}
+
+          <div className="divide-y divide-border">
+            {dict.pricing.featureCatalog.categories.map((cat: { title: string; items: { name: string; price: number }[] }) => (
+              <div key={cat.title} className="p-8 lg:p-12">
+                <p className="text-xs tracking-[0.2em] uppercase text-accent font-medium mb-6">{cat.title}</p>
+                <div className="space-y-0">
+                  {cat.items.map((item, idx) => (
+                    <div
+                      key={item.name}
+                      className={cn(
+                        "flex items-center justify-between py-4 gap-4",
+                        idx < cat.items.length - 1 && "border-b border-border/60"
+                      )}
+                    >
+                      <span className="text-sm text-fg-muted">{item.name}</span>
+                      <span className="font-display text-lg text-fg shrink-0">
+                        {item.price.toLocaleString("fr-FR")} €
+                      </span>
+                    </div>
+                  ))}
                 </div>
-                <div className="mt-2 text-xs text-fg-subtle font-mono">{a.price}</div>
               </div>
             ))}
           </div>
+
+          <div className="px-8 lg:px-12 py-5 bg-bg-subtle/50 border-t border-border">
+            <p className="text-xs text-fg-subtle italic">{dict.pricing.featureCatalog.note}</p>
+          </div>
+        </motion.div>
+
+        {/* ── Hosting & Maintenance plans ── */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="font-display text-display-sm font-light mb-3">{dict.pricing.hosting.heading}</h3>
+            <p className="text-fg-muted max-w-2xl mx-auto">{dict.pricing.hosting.description}</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {dict.pricing.hosting.plans.map((
+              plan: { name: string; price: number; tagline: string; popular: boolean; features: string[] },
+              i: number
+            ) => (
+              <motion.div
+                key={plan.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className={cn(
+                  "relative rounded-2xl p-8 lg:p-10 border flex flex-col",
+                  plan.popular
+                    ? "bg-bg-elevated border-accent shadow-[0_0_60px_-15px_rgba(197,160,89,0.3)]"
+                    : "bg-bg-card border-border-strong"
+                )}
+              >
+                {plan.popular && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 bg-accent text-bg px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap">
+                    <Sparkles className="w-3 h-3" />
+                    {dict.pricing.hosting.popularBadge}
+                  </div>
+                )}
+
+                <div>
+                  <h4 className="font-display text-3xl mb-1">{plan.name}</h4>
+                  <div className="flex items-baseline gap-1 py-5 border-b border-border">
+                    <span className="font-display text-5xl font-medium">{plan.price}</span>
+                    <span className="font-display text-2xl font-medium ml-1">€</span>
+                    <span className="text-sm text-fg-subtle ml-1">{dict.pricing.hosting.monthlyUnit}</span>
+                  </div>
+                  <p className="mt-4 text-sm text-fg-muted italic">{plan.tagline}</p>
+                </div>
+
+                <ul className="mt-6 space-y-3 flex-1">
+                  {plan.features.map((f: string) => (
+                    <li key={f} className="flex items-start gap-3 text-sm text-fg-muted">
+                      <Check
+                        className={cn(
+                          "w-4 h-4 shrink-0 mt-0.5",
+                          plan.popular ? "text-accent" : "text-fg-subtle"
+                        )}
+                      />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href={`/${lang}/contact`}
+                  className={cn(
+                    "mt-8 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium transition-colors",
+                    plan.popular
+                      ? "bg-accent text-bg hover:bg-accent-glow"
+                      : "border border-border-strong hover:bg-fg hover:text-bg hover:border-fg"
+                  )}
+                >
+                  {dict.pricing.cta}
+                </a>
+              </motion.div>
+            ))}
+          </div>
         </div>
+
       </div>
     </section>
   );

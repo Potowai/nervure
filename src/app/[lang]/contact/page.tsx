@@ -1,5 +1,19 @@
+import type { Metadata } from "next";
 import { getDictionary, Locale } from "@/dictionaries";
 import { ContactForm } from "@/components/ui/ContactForm";
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = (await params) as { lang: Locale };
+  return lang === "fr"
+    ? {
+        title: "Contact | Démarrez Votre Projet Web — Nervure",
+        description: "Contactez Nervure, agence web à Nantes. Parlez-nous de votre projet et obtenez un devis gratuit et détaillé sous 24h. Sans engagement.",
+      }
+    : {
+        title: "Contact | Start Your Web Project — Nervure",
+        description: "Get in touch with Nervure, a Nantes web agency. Tell us about your project and receive a free, detailed quote within 24 hours. No commitment required.",
+      };
+}
 
 export default async function ContactPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = (await params) as { lang: Locale };
@@ -23,13 +37,13 @@ export default async function ContactPage({ params }: { params: Promise<{ lang: 
 
             <div className="space-y-8">
               <div>
-                <h4 className="text-sm tracking-widest uppercase opacity-40 mb-2">Email</h4>
+                <p className="text-sm tracking-widest uppercase opacity-40 mb-2">Email</p>
                 <a href={`mailto:${dict.contact.info.email}`} className="text-2xl hover:text-accent transition-colors underline underline-offset-8 decoration-white/10 hover:decoration-accent">
                   {dict.contact.info.email}
                 </a>
               </div>
               <div>
-                <h4 className="text-sm tracking-widest uppercase opacity-40 mb-2">Location</h4>
+                <p className="text-sm tracking-widest uppercase opacity-40 mb-2">Location</p>
                 <p className="text-2xl">{dict.contact.info.location}</p>
               </div>
             </div>

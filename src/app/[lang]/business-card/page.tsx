@@ -13,7 +13,7 @@ export default function BusinessCardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1a1a1a] py-20 px-6 flex flex-col items-center gap-12">
+    <main className="min-h-screen bg-[#1a1a1a] py-20 px-6 flex flex-col items-center gap-12">
       <div className="text-center space-y-4 mb-8 no-print">
         <h1 className="font-display text-4xl text-white">
           {lang === "fr" ? "Carte de Visite" : "Business Card"}
@@ -190,6 +190,6 @@ export default function BusinessCardPage() {
           }
         }
       `}</style>
-    </div>
+    </main>
   );
 }

@@ -3,11 +3,12 @@ import type { MetadataRoute } from "next";
 const BASE_URL = "https://nervure.site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const locales = ["fr", "en"];
+  const locales = ["fr", "en"] as const;
   const now = new Date();
 
   const staticPages = [
     { path: "", priority: 1.0, changeFrequency: "weekly" as const },
+    { path: "/about", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/contact", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/work", priority: 0.8, changeFrequency: "weekly" as const },
     { path: "/privacy", priority: 0.3, changeFrequency: "yearly" as const },
@@ -15,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const servicePages = [
-    "websites", "software", "automation", "ads", "graphics", "seo",
+    "product-design", "websites", "software", "automation", "ads", "graphics", "seo",
   ];
 
   const entries: MetadataRoute.Sitemap = [];

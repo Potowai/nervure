@@ -9,7 +9,7 @@ export const site = {
   socials: {
     instagram: "https://instagram.com/x_forgeweb",
     twitter: "https://twitter.com/x_forgeweb",
-    linkedin: "#",
+    linkedin: "https://linkedin.com/company/nervure-nantes",
   },
   nav: [
     { label: "About", href: "#about" },
@@ -47,15 +47,25 @@ export const projects = [
   {
     title: "Nueve",
     tag: "Brand Website",
+    description: "A premium brand website for a Greek design studio. Dark botanical aesthetic, smooth scroll animations, and performance-optimized across all devices.",
     image: "/nueve-gr.png",
     href: "https://nueve.gr",
     cta: "View Live",
   },
   {
-    title: "Oura Ring",
+    title: "SkillShastra",
+    tag: "EdTech Platform",
+    description: "A comprehensive online learning platform with course discovery, instructor profiles, and a structured curriculum management system for a growing EdTech startup.",
+    image: "/SkillShastra.png",
+    href: "#",
+    cta: "View Project",
+  },
+  {
+    title: "Digital Commerce",
     tag: "E-Commerce Solution",
-    image: "/oura-ring.png",
-    href: "https://ouraring.com/",
+    description: "A high-performance e-commerce solution featuring integrated CMS, optimized product pages, secure checkout flows, and custom branding built to drive conversions.",
+    image: "/Ecommerce.png",
+    href: "#",
     cta: "View Project",
   },
 ];
@@ -74,12 +84,12 @@ export const pricingTiers = [
     name: "Basic",
     tagline: "Online presence + trust",
     features: [
-      "5-page website (Home, Menu, About, Contact, Gallery)",
-      "Online menu with pricing",
+      "5-page website (Home, Services, About, Contact, Gallery)",
+      "Custom responsive design",
       "Google Maps integration",
-      "WhatsApp order button",
+      "WhatsApp contact button",
       "Basic SEO setup",
-      "Contact/Reservation form",
+      "Contact / appointment form",
     ],
     popular: false,
   },
@@ -88,11 +98,11 @@ export const pricingTiers = [
     tagline: "Customer engagement + control",
     features: [
       "Everything in Basic +",
-      "Online table booking system",
-      "Admin panel to update menu",
+      "Online booking / appointment system",
+      "Admin panel for content updates",
       "Photo gallery management",
       "Customer inquiry dashboard",
-      "Review/testimonial section",
+      "Reviews / testimonials section",
       "Basic analytics dashboard",
     ],
     popular: true,
@@ -102,39 +112,33 @@ export const pricingTiers = [
     tagline: "Revenue generation system",
     features: [
       "Everything in Standard +",
-      "Online ordering system (cart + checkout)",
+      "Full e-commerce (cart + checkout)",
       "Payment gateway integration",
       "Order management dashboard",
-      "Coupon/discount system",
-      "Inventory lite tracking",
+      "Discount / coupon system",
+      "Lite inventory tracking",
       "1-month digital marketing support",
     ],
     popular: false,
   },
 ];
 
-export const addons = [
-  { name: "Digital Marketing", price: "Custom – Custom/month" },
-  { name: "WhatsApp Automation", price: "Custom" },
-  { name: "SEO", price: "Custom/month" },
-  { name: "AMC (Maintenance)", price: "15% yearly" },
-];
 
 export const testimonials = [
   {
-    quote: "Nervure is hands down the best website building agency. They transformed our outdated site into a modern conversion machine. The attention to detail and animations are world-class.",
-    author: "Rahul Sharma",
-    role: "CEO, TechFlow India",
+    quote: "Nervure completely transformed our digital presence. The site they built is fast, beautiful and has brought us new clients every week since launch.",
+    author: "Thomas Marchand",
+    role: "Fondateur, Studio Marchand",
   },
   {
-    quote: "Incredible experience working with Nervure. They understood our brand voice immediately and delivered a product that exceeded our wildest expectations. Highly recommend!",
-    author: "Priya Patel",
-    role: "Founder, StartUp Solutions",
+    quote: "Professional, responsive and creative. Nervure delivered our platform on time and above expectations. The SEO work has been exceptional — traffic doubled in two months.",
+    author: "Claire Fontaine",
+    role: "CEO, Maison Fontaine",
   },
   {
-    quote: "Fast, professional, and wildly creative. The SEO optimizations alone have doubled our organic traffic in just two months. Nervure is truly a top web design agency.",
-    author: "Amit Verma",
-    role: "Marketing Director, GrowthHub",
+    quote: "Working with Nervure was seamless from day one. They understood our brand vision and built a platform that truly represents who we are. Highly recommend.",
+    author: "Luc Bertrand",
+    role: "Directeur, Groupe Bertrand",
   },
 ];
 

@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { site } from "@/lib/content";
 import Link from "next/link";
@@ -42,9 +41,9 @@ export function Footer({ dict, lang }: { dict: any; lang: string }) {
           </div>
 
           <div className="lg:col-span-2 lg:col-start-8">
-            <h4 className="text-xs tracking-[0.2em] uppercase text-fg-subtle mb-6">
+            <p className="text-xs tracking-[0.2em] uppercase text-fg-subtle mb-6">
               {dict.footer.sitemap}
-            </h4>
+            </p>
             <ul className="space-y-4">
               {dict.nav.map((item: any) => (
                 <li key={item.href}>
@@ -56,13 +55,36 @@ export function Footer({ dict, lang }: { dict: any; lang: string }) {
             </ul>
           </div>
 
+          <div className="lg:col-span-2 lg:col-start-11">
+            <p className="text-xs tracking-[0.2em] uppercase text-fg-subtle mb-6">
+              {lang === "fr" ? "Pages" : "Pages"}
+            </p>
+            <ul className="space-y-4">
+              <li>
+                <Link href={`/${lang}/about`} className="text-fg-muted hover:text-fg transition-colors">
+                  {lang === "fr" ? "À propos" : "About"}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${lang}/work`} className="text-fg-muted hover:text-fg transition-colors">
+                  {lang === "fr" ? "Portfolio" : "Portfolio"}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${lang}/contact`} className="text-fg-muted hover:text-fg transition-colors">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
         </div>
 
-        {/* Giant wordmark */}
+        {/* Giant wordmark — decorative only, not a heading */}
         <div className="py-16 overflow-hidden">
-          <h3 className="font-display text-[clamp(5rem,20vw,18rem)] leading-none tracking-tight text-fg text-center select-none">
+          <p className="font-display text-[clamp(5rem,20vw,18rem)] leading-none tracking-tight text-fg text-center select-none" aria-hidden="true">
             {site.name}
-          </h3>
+          </p>
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-border text-xs text-fg-subtle">
